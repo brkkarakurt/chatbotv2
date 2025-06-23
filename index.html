@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Demo Site</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #222;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 40px 20px;
+            gap: 20px;
+        }
+        .product-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 280px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .product-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        .product-card p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        .product-card button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        footer {
+            background-color: #222;
+            color: #aaa;
+            padding: 15px;
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Demo Ürün Sitesi</h1>
+    </header>
+
+    <section class="products">
+
+        <div class="product-card">
+            <h3>Akıllı Masa Lambası</h3>
+            <p>Sesli kontrol ve parlaklık ayarı ile verimli çalışma.</p>
+            <button onclick="openChat('Akıllı Masa Lambası')">Bu modeli istiyorum</button>
+        </div>
+
+        <div class="product-card">
+            <h3>Akıllı Termos</h3>
+            <p>Sıcaklık göstergeli, uzun süre sıcak/soğuk koruma.</p>
+            <button onclick="openChat('Akıllı Termos')">Bu modeli istiyorum</button>
+        </div>
+
+        <div class="product-card">
+            <h3>Bluetooth Kulaklık</h3>
+            <p>Yüksek ses kalitesi, gürültü engelleme, uzun pil ömrü.</p>
+            <button onclick="openChat('Bluetooth Kulaklık')">Bu modeli istiyorum</button>
+        </div>
+
+        <div class="product-card">
+            <h3>Akıllı Saat</h3>
+            <p>Adım sayar, nabız ölçer, bildirim desteği.</p>
+            <button onclick="openChat('Akıllı Saat')">Bu modeli istiyorum</button>
+        </div>
+
+    </section>
+
+    <footer>
+        © 2025 Demo Site
+    </footer>
+
+
+    <script>
+        function openChat(productName) {
+            if (window.tidioChatApi) {
+                
+                window.tidioChatApi.open();
+                window.tidioChatApi.message(`Merhaba, '${productName}' modelini istiyorum.`);
+            } else {
+                alert(`Chatbot şu anda yüklenmedi. Ürün: ${productName}`);
+            }
+        }
+    </script>
+</body>
+</html>
