@@ -98,29 +98,35 @@
         © 2025 Demo Site
     </footer>
 
+    
     <script src="https://code.tidio.co/f7h3jlvfiv14xdb6bzqncmvahzhikwh6.js" async></script>
 
+    
     <script>
     document.addEventListener("DOMContentLoaded", function() {
-    
+
         window.tidioChatApi = window.tidioChatApi || {};
         window.tidioChatApi.onReadyCallbacks = window.tidioChatApi.onReadyCallbacks || [];
-    
+
         window.tidioChatApi.onReadyCallbacks.push(function() {
             console.log("Tidio chat hazır.");
         });
-    
+
         window.openChat = function(productName) {
             if (window.tidioChatApi && window.tidioChatApi.open) {
+                
                 localStorage.setItem('requestedProduct', productName);
+                
                 window.tidioChatApi.open();
+                
+                window.tidioChatApi.displayMessage("Merhaba! '" + productName + "' ürünü ile ilgileniyorum. Yardımcı olabilir misiniz?");
             } else {
                 alert(`Chatbot şu anda yüklenmedi. Ürün: ${productName}`);
             }
         }
-    
+
     });
     </script>
-    
+
 </body>
 </html>
