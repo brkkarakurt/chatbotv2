@@ -108,19 +108,6 @@
             console.log("Tidio chat hazır.");
         });
 
-        window.openChat = function(productName) {
-            if (window.tidioChatApi && window.tidioChatApi.open) {
-                
-                localStorage.setItem('requestedProduct', productName);
-                
-                window.tidioChatApi.open();
-                
-                window.tidioChatApi.displayMessage("Merhaba! '" + productName + "' ürünü ile ilgileniyorum. Yardımcı olabilir misiniz?");
-            } else {
-                alert(`Chatbot şu anda yüklenmedi. Ürün: ${productName}`);
-            }
-        }
-
     });
     </script>
 
