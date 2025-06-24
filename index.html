@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Demo Site</title>
+    <title>Demo Ürün Sitesi</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -98,17 +98,29 @@
         © 2025 Demo Site
     </footer>
 
+    <script src="https://code.tidio.co/f7h3jlvfiv14xdb6bzqncmvahzhikwh6.js" async></script>
 
-    <script src="//code.tidio.co/f7h3jlvfiv14xdb6bzqncmvahzhikwh6.js" async>
-        function openChat(productName) {
-            if (window.tidioChatApi) {
-                
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    
+        window.tidioChatApi = window.tidioChatApi || {};
+        window.tidioChatApi.onReadyCallbacks = window.tidioChatApi.onReadyCallbacks || [];
+    
+        window.tidioChatApi.onReadyCallbacks.push(function() {
+            console.log("Tidio chat hazır.");
+        });
+    
+        window.openChat = function(productName) {
+            if (window.tidioChatApi && window.tidioChatApi.open) {
+                localStorage.setItem('requestedProduct', productName);
                 window.tidioChatApi.open();
-                window.tidioChatApi.message(`Merhaba, '${productName}' modelini istiyorum.`);
             } else {
                 alert(`Chatbot şu anda yüklenmedi. Ürün: ${productName}`);
             }
         }
+    
+    });
     </script>
+    
 </body>
 </html>
